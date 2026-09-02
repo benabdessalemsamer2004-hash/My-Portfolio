@@ -1,164 +1,203 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samer Ben Abdessalem | Biomedical Engineering & BCI Research</title>
+    <title>Samer Ben Abdessalem | Portfolio</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-color: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --border-color: #334155;
+            --bg-color: #072e20;
+            --bg-gradient: linear-gradient(135deg, #0a3d2c 0%, #031810 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f0f4f1;
+            --text-muted: #b0c4b8;
+            --accent-color: #4ade80;
         }
-        * {
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
             line-height: 1.6;
-            padding: 20px;
+            min-height: 100vh;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
+
         header {
-            margin-bottom: 50px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 30px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: var(--border-color);
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            background-color: #111;
         }
+
+        .profile-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        /* Skills Grid & Tags */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
+
         .skill-tag {
             background-color: var(--card-bg);
-            color: var(--accent-color);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 0.9rem;
-            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .project-card:hover {
-            transform: translateY(-3px);
+
+        .skill-tag.verified {
             border-color: var(--accent-color);
         }
+
+        .skill-tag:hover {
+            background-color: rgba(74, 222, 128, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
         .project-title {
             font-size: 1.2rem;
-            color: var(--text-color);
+            font-weight: bold;
+            color: #ffffff;
             margin-bottom: 8px;
         }
+
         .project-desc {
+            color: var(--text-muted);
             font-size: 0.95rem;
-            color: var(--text-secondary);
             margin-bottom: 15px;
         }
+
         .btn {
             display: inline-block;
             background-color: transparent;
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 6px 14px;
+            border-radius: 4px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             transition: background-color 0.2s, color 0.2s;
         }
+
         .btn:hover {
             background-color: var(--accent-color);
-            color: var(--bg-color);
+            color: #031810;
         }
-        footer {
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Header / About -->
+        <!-- Header / Bio Section -->
         <header>
-            <h1>Samer Ben Abd Essalem</h1>
-            <div class="tagline">Biomedical Engineering Student & BCI Researcher</div>
-            <p>
-                Biomedical engineering student and researcher passionate about embedded systems, low-level device programming, and Brain-Computer Interface (BCI) technologies. Eager to leverage skills in applied mathematics, signal processing, and software development to contribute to advanced medical and technological innovations.
-            </p>
+            <img src="https://via.placeholder.com/140" alt="Samer Ben Abdessalem" class="profile-img">
+            <div class="profile-info">
+                <h1>Samer Ben Abdessalem</h1>
+                <p>1st Year Biomedical Engineering Student | Institut Supérieur des Technologies Médicales de Tunis (ISTMT)</p>
+                <p>Focusing on Embedded Systems, Neural Signal Processing & BCI Architectures</p>
+            </div>
         </header>
 
-        <!-- Skills Section -->
+        <!-- About Me Section -->
+        <section>
+            <h2>About Me</h2>
+            <p>
+                First-year biomedical engineering student passionate about bridging hardware constraints and neuroengineering applications. Experienced in bare-metal software architecture, C/C++ microcontrollers (STM32), and digital logic design, aiming toward cutting-edge brain-computer interface research.
+            </p>
+        </section>
+
+        <!-- Skills & Credentials Section -->
         <section>
             <h2>Technical Skills & Credentials</h2>
             <div class="skills-grid">
-                <!-- المهارات الموثقة بشهادات -->
-                <a href="رابط_شهادة_C_أو_البرمجة" target="_blank" class="skill-tag" style="text-decoration: none; border-color: var(--accent-color);">C / C++ <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
-                <a href="رابط_شهادة_الأنظمة_المدمجة" target="_blank" class="skill-tag" style="text-decoration: none; border-color: var(--accent-color);">Embedded Systems & STM32 <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
+                <!-- استبدل # برابط الشهادة الفعلي الخاص بك -->
+                <a href="#" target="_blank" class="skill-tag verified" style="text-decoration: none;">C / C++ <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
+                <a href="#" target="_blank" class="skill-tag verified" style="text-decoration: none;">Embedded Systems & STM32 <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
+                <a href="#" target="_blank" class="skill-tag verified" style="text-decoration: none;">Signal Processing <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
                 
-                <!-- باقي المهارات (يمكنك إضافة روابطها لاحقاً أو تركها كأوسمة تقنية) -->
                 <a href="#" target="_blank" class="skill-tag" style="text-decoration: none;">Bare-Metal Architecture</a>
-                <a href="رابط_شهادة_معالجة_الإشارات" target="_blank" class="skill-tag" style="text-decoration: none; border-color: var(--accent-color);">Signal Processing <span style="font-size: 0.75rem; opacity: 0.8;">(Verified)</span></a>
                 <a href="#" target="_blank" class="skill-tag" style="text-decoration: none;">Applied Mathematics & Fourier</a>
                 <a href="#" target="_blank" class="skill-tag" style="text-decoration: none;">Digital Logic Design</a>
                 <a href="#" target="_blank" class="skill-tag" style="text-decoration: none;">Git & GitHub</a>
@@ -166,16 +205,16 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Academic Projects Section -->
         <section>
             <h2>Academic Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-title">Academic Project Title (e.g., Digital Logic Design or Signal Simulation)</div>
+                    <div class="project-title">Digital Logic & Circuit Simulation</div>
                     <div class="project-desc">
-                        A brief description of the academic project, course objectives, and tools utilized within coursework at the institute.
+                        Analysis and implementation of sequential circuits, multiplexers, and boolean logic reduction as part of coursework at ISTMT.
                     </div>
-                    <a href="رابط_مستودع_المشروع_على_غيت_هاب" target="_blank" class="btn">View on GitHub</a>
+                    <a href="https://github.com" target="_blank" class="btn">View on GitHub</a>
                 </div>
             </div>
         </section>
@@ -185,26 +224,15 @@
             <h2>Personal Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-title">Personal Project Title (e.g., Embedded Firmware or BCI Prototype)</div>
+                    <div class="project-title">STM32 Embedded Firmware & Signal Acquisition</div>
                     <div class="project-desc">
-                        Description of the personal project, technical challenges overcome, and implementation details using C/C++ or microcontrollers.
+                        Development of low-level C firmware for microcontroller-based bio-signal acquisition pipelines and memory optimization.
                     </div>
-                    <a href="رابط_مستودع_المشروع_على_غيت_هاب" target="_blank" class="btn">View on GitHub</a>
+                    <a href="https://github.com" target="_blank" class="btn">View on GitHub</a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section>
-            <h2>Contact</h2>
-            <p>Feel free to reach out for academic collaborations, research internships, or technical discussions.</p>
-            <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Samer Ben Abd Essalem. Built for GitHub Pages.</p>
-        </footer>
     </div>
 
 </body>
